@@ -1,0 +1,14 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "tsc", //this is the command we are going to execute
+    "isShellCommand": true, //the command
+    "args": ["--target", "ES5",
+            "--outDir", "js",
+            "--sourceMap",
+            "--watch",
+            "app.ts"],
+    "showOutput": "silent",
+    "problemMatcher": "$tsc"
+}
