@@ -1,9 +1,9 @@
 function GetAllBooks() {
     var books = [
-        { title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
-        { title: 'A Farewell to Arms', author: 'Ernest H.', available: false, category: Category.Fiction },
-        { title: 'I Know Why the Caged Bird Sings', author: 'Maya Angelou', available: true, category: Category.Poetry },
-        { title: 'Moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
+        { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
+        { id: 2, title: 'A Farewell to Arms', author: 'Ernest H.', available: false, category: Category.Fiction },
+        { id: 3, title: 'I Know Why the Caged Bird Sings', author: 'Maya Angelou', available: true, category: Category.Poetry },
+        { id: 4, title: 'Moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
     ];
     return books;
 }
@@ -29,6 +29,7 @@ var Category;
     Category[Category["Children"] = 4] = "Children";
 })(Category || (Category = {}));
 function GetBookTitlesByCategory(categoryFilter) {
+    if (categoryFilter === void 0) { categoryFilter = Category.Fiction; }
     console.log("Getting books in category: " + Category[categoryFilter]);
     var allBooks = GetAllBooks();
     var filteredTitles = [];
@@ -46,6 +47,23 @@ function LogBookTitles(titles) {
         console.log(title);
     }
 }
-var poetryBooks = GetBookTitlesByCategory(Category.Poetry);
-LogBookTitles(poetryBooks);
+function GetBookById(id) {
+    var allBooks = GetAllBooks();
+    return allBooks.find(function (book) { return book.id === id; })[0];
+}
+function CreateCustomerID(name, id) {
+    return name + id;
+}
+function CreateCustomer(name, age, city) {
+    console.log("Creating customer " + name);
+    if (age)
+        console.log("Age: " + age);
+    if (city)
+        console.log("City: " + city);
+}
+/************************************************************************ */
+var myID = CreateCustomerID('Jose', 10);
+console.log(myID);
+//const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
+//fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val)); 
 //# sourceMappingURL=app.js.map
