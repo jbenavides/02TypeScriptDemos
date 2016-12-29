@@ -1,4 +1,7 @@
-function GetAllBooks(){
+import {Category} from './enums';
+import {Book} from './interfaces'
+
+function GetAllBooks() : Book[]{
     let books = [
         {id:1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction},
         {id:2, title: 'A Farewell to Arms', author: 'Ernest H.', available: false, category: Category.Fiction},
@@ -25,7 +28,7 @@ function LogFirstAvailable(books): void{
     console.log('First Available: ' + firstAvailable)
 }
 
-enum Category {Biography, Poetry, Fiction, History, Children}
+
 
 function GetBookTitlesByCategory(categoryFilter: Category = Category.Fiction): Array<string>{
     console.log("Getting books in category: " + Category[categoryFilter]);
@@ -48,7 +51,7 @@ function LogBookTitles(titles: string[]):void{
     }
 }
 
-function GetBookById(id: number){
+function GetBookById(id: number): Book{
     const allBooks = GetAllBooks();
     return allBooks.find(book => book.id === id)[0];
 }
@@ -65,6 +68,10 @@ function CreateCustomer(name: string, age?: number, city?: string): void{
     
     if(city)
         console.log("City: " + city);
+}
+
+function PrintBook(book: Book): void{
+    console.log(book.title + ' by ' + book.author);
 }
 
 /************************************************************************ */
