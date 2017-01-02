@@ -1,5 +1,6 @@
 import {Category} from './enums';
-import {Book} from './interfaces'
+import {Book, DamageLogger, Author, Librarian} from './interfaces'
+import {UniversityLibrarian} from './classes'
 
 function GetAllBooks() : Book[]{
     let books = [
@@ -82,3 +83,17 @@ console.log(myID);
 
 //const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
 //fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val));
+
+
+
+
+
+
+let favoriteLibrarian: Librarian = new UniversityLibrarian();
+favoriteLibrarian.name = 'Sharon';
+favoriteLibrarian.assistCustomer('Pantro');
+
+
+
+
+
